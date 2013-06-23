@@ -29,6 +29,9 @@ module.exports = function colorpicker(options) {
     var g = data[1];
     var b = data[2];
     active.value = rgbToHex(r, g, b);
+    if (typeof options.changed === 'function') {
+      options.changed(active);
+    }
   });
 
   var rgbToHex = function(r, g, b) {
