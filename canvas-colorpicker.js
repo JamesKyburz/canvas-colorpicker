@@ -1,3 +1,5 @@
+var attachEvent = require('attachevent').attachEvent;
+
 module.exports = function colorpicker(options) {
   var canvas = window.document.createElement('canvas');
   if (!canvas.getContext) return;
@@ -9,17 +11,17 @@ module.exports = function colorpicker(options) {
 
   var img = window.document.createElement('image');
   img.setAttribute('src', options.backgroundSrc);
-  img.onload = function() {
+  attachEvent(img, 'load', function() {
     canvas.setAttribute('height', img.height);
     canvas.setAttribute('width', img.width);
     ctx.drawImage(img, 0, 0);
-  };
+  });
 
   var active = null;
 
-  canvas.onmousedown = function() { canvas.style.display = 'none'; };
+  attachEvent(canvas, 'mousedown', function() { canvas.style.display = 'none'; });
 
-  canvas.onmousemove = function(e) {
+  attachEvent(canvas, 'mousemove', function(e) {
     var x = e.offsetX;
     var y = e.offsetY;
     var data = ctx.getImageData(x, y, 1, 1).data;
@@ -27,7 +29,7 @@ module.exports = function colorpicker(options) {
     var g = data[1];
     var b = data[2];
     active.value = rgbToHex(r, g, b);
-  };
+  });
 
   var rgbToHex = function(r, g, b) {
     return "#" + (16777216 | b | (g << 8) | (r << 16)).toString(16).slice(1);

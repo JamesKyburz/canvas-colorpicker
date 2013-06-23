@@ -15,5 +15,8 @@
   "gitHead": "46ce768326b3d8cf4f88a26d9ae2bbce42f9e071",
   "bugs": {
     "url": "https://github.com/JamesKyburz/canvas-colorpicker/issues"
+  },
+  "dependencies": {
+    "attachevent": "0.0.0"
   }
 }
