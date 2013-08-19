@@ -1,8 +1,8 @@
-var attachEvent = require('attachevent').attachEvent;
-
 module.exports = function colorpicker(options) {
+  if (!options.backgroundSrc) throw new Error('backgroundSrc not specified');
+
   var canvas = window.document.createElement('canvas');
-  if (!canvas.getContext) return;
+  if (!('getContext' in canvas)) return;
 
   canvas.setAttribute('id', 'colorpicker');
   canvas.setAttribute('style', 'display:none; position:absolute;');
@@ -11,17 +11,17 @@ module.exports = function colorpicker(options) {
 
   var img = window.document.createElement('image');
   img.setAttribute('src', options.backgroundSrc);
-  attachEvent(img, 'load', function() {
+  img.addEventListener('load', function() {
     canvas.setAttribute('height', img.height);
     canvas.setAttribute('width', img.width);
     ctx.drawImage(img, 0, 0);
-  });
+  }, false);
 
   var active = null;
 
-  attachEvent(canvas, 'mousedown', function() { canvas.style.display = 'none'; });
+  canvas.addEventListener('mousedown', function() { canvas.style.display = 'none'; }, false);
 
-  attachEvent(canvas, 'mousemove', function(e) {
+  canvas.addEventListener('mousemove', function(e) {
     var x = e.offsetX;
     var y = e.offsetY;
     var data = ctx.getImageData(x, y, 1, 1).data;
@@ -32,7 +32,7 @@ module.exports = function colorpicker(options) {
     if (typeof options.changed === 'function') {
       options.changed(active);
     }
-  });
+  }, false);
 
   var rgbToHex = function(r, g, b) {
     return "#" + (16777216 | b | (g << 8) | (r << 16)).toString(16).slice(1);
