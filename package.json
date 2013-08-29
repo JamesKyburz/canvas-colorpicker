@@ -1,28 +1,30 @@
 {
-    "name": "canvas-colorpicker",
-    "version": "0.0.1",
-    "description": "",
-    "main": "canvas-colorpicker.js",
-    "scripts": {
-        "test": "node ./test/server"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/JamesKyburz/canvas-colorpicker.git"
-    },
-    "keywords": [
-        "canvas",
-        "color",
-        "picker"
-    ],
-    "author" : {
-        "name" : "James Kyburz",
-        "email" : "james.kyburz@gmail.com"
-    },
-    "license": "MIT",
-    "dependencies": {},
-    "devDependencies": {
-        "browserify": "~2.28.0",
-        "hyperquest": "~0.1.7"
-    }
+  "name": "canvas-colorpicker",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JamesKyburz/canvas-colorpicker.git"
+  },
+  "keywords": [
+    "canvas",
+    "color",
+    "picker"
+  ],
+  "author": {
+    "name": "James Kyburz",
+    "email": "james.kyburz@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "~2.29.0"
+  },
+  "devDependencies": {
+    "browserify": "~2.28.0",
+    "hyperquest": "~0.1.7"
+  }
 }
