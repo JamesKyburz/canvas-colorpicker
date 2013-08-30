@@ -15,11 +15,6 @@ http.createServer(function(q, r) {
     fs.createReadStream('./test/bundle.css').pipe(r);
   }
 
-  if (q.url === '/background.png') {
-    r.writeHead(200, {'content-type': 'image/png'});
-    hyperquest('https://dl.dropboxusercontent.com/u/11380518/color-picker-backdrop.png').pipe(r);
-  }
-
   if (q.url === '/bundle.js') {
     r.writeHead(200, {'content-type': 'application/x-javascript'});
     browserify()

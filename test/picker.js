@@ -5,7 +5,7 @@ window.onload = function() {
   var div = window.document.querySelector('div');
 
   var pick = picker({
-    backgroundSrc: './background.png',
+    backgroundSrc: 'http://dl.dropboxusercontent.com/u/11380518/color-picker-backdrop.png',
     changed: function colorSelected(e) {
       input.value = e.value;
       div.style.backgroundColor = e.value;
