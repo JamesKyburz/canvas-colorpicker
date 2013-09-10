@@ -9,7 +9,7 @@ module.exports = function colorpicker(options) {
 
   var ctx = canvas.getContext('2d');
 
-  var img = window.document.createElement('image');
+  var img = window.document.createElement('img');
   img.setAttribute('crossOrigin', 'Anonymous');
   img.setAttribute('src', options.backgroundSrc);
   img.addEventListener('load', function() {
@@ -23,8 +23,8 @@ module.exports = function colorpicker(options) {
   canvas.addEventListener('mousedown', function() { canvas.style.display = 'none'; }, false);
 
   canvas.addEventListener('mousemove', function(e) {
-    var x = e.offsetX;
-    var y = e.offsetY;
+    var x = e.offsetX || e.layerX;
+    var y = e.offsetY || e.layerY;
     var data = ctx.getImageData(x, y, 1, 1).data;
     var r = data[0];
     var g = data[1];
