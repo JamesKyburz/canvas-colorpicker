@@ -10,7 +10,9 @@ module.exports = function colorpicker(options) {
   var ctx = canvas.getContext('2d');
 
   var img = window.document.createElement('img');
-  img.setAttribute('crossOrigin', 'Anonymous');
+  if (!options.backgroundSrc.match(/^data/)) {
+    img.setAttribute('crossOrigin', 'Anonymous');
+  }
   img.setAttribute('src', options.backgroundSrc);
   img.addEventListener('load', function() {
     canvas.setAttribute('height', img.height);
