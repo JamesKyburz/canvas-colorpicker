@@ -21,10 +21,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "browserify": "~2.29.0"
+    "browserify": "2.29.1"
   },
   "devDependencies": {
-    "browserify": "~2.28.0",
-    "hyperquest": "~0.1.7"
+    "browserify": "2.28.0",
+    "hyperquest": "0.1.8"
   }
 }
