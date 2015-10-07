@@ -10,6 +10,11 @@ http.createServer(function(q, r) {
     return;
   }
 
+  if (q.url === '/backdrop.png') {
+    r.writeHead(200, {'content-type': 'image/png'});
+    fs.createReadStream('./test/backdrop.png').pipe(r)
+  }
+
   if (q.url === '/bundle.css') {
     r.writeHead(200, {'content-type': 'text/css'});
     fs.createReadStream('./test/bundle.css').pipe(r);
