@@ -21,7 +21,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "browserify": "13.3.0",
+    "browserify": "14.3.0",
     "hyperquest": "^2.1.2"
   }
 }

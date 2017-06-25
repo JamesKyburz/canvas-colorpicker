@@ -1,5 +1,7 @@
 # canvas-color-picker
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/JamesKyburz/canvas-colorpicker.svg)](https://greenkeeper.io/)
+
 Displays an image in canvas and shows what color the cursor is at.
 
 # install
